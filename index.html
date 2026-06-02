@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div class="quiz-container">
+  <header>
+    <h1>Agro Forte, Futuro Sustentável</h1>
+    <p>Tecnologia, Produtividade e Preservação</p>
+    <div class="progress-bar-container">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+  </header>
+  
+  <div id="quiz-screen">
+    <div class="question-box">
+      <span id="question-number" class="badge">Pergunta 1</span>
+      <h2 id="question-text">Carregando pergunta...</h2>
+    </div>
+    
+    <div id="options-container" class="options-grid">
+      </div>
+    
+    <div id="feedback-box" class="feedback-box hide">
+      <p id="feedback-text"></p>
+    </div>
+    
+    <div class="controls">
+      <button id="next-btn" class="btn hide">Avançar →</button>
+    </div>
+  </div>
+
+  <div id="score-screen" class="hide">
+    <div class="result-card">
+      <h2>Quiz Concluído!</h2>
+      <div class="score-circle">
+        <span id="score-percentage">0%</span>
+      </div>
+      <p id="score-text">Você acertou 0 de 0 perguntas.</p>
+      <button id="restart-btn" class="btn btn-restart">Tentar Novamente</button>
+    </div>
+  </div>
+</div>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

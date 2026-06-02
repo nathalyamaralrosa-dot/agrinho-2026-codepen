@@ -1,0 +1,353 @@
+<!-- 
+AGRO FORTE • FUTURO SUSTENTÁVEL
+Projeto para CodePen
+Estrutura:
+1. HTML
+2. CSS
+3. JS
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agro Forte</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:#071b11;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* Fundo animado */
+    body::before{
+      content:"";
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+        radial-gradient(circle at top left, rgba(62,255,150,0.18), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0,180,255,0.15), transparent 35%);
+      z-index:-2;
+    }
+
+    .particles{
+      position:fixed;
+      width:100%;
+      height:100%;
+      z-index:-1;
+      overflow:hidden;
+    }
+
+    .particle{
+      position:absolute;
+      width:4px;
+      height:4px;
+      background:#6dffb5;
+      border-radius:50%;
+      opacity:0.4;
+      animation:float 12s linear infinite;
+    }
+
+    @keyframes float{
+      from{
+        transform:translateY(100vh) scale(0);
+      }
+      to{
+        transform:translateY(-10vh) scale(1);
+      }
+    }
+
+    header{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px;
+      position:relative;
+    }
+
+    .hero{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:4rem;
+      line-height:1.1;
+      margin-bottom:20px;
+      background:linear-gradient(90deg,#7CFF9B,#00D4FF);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      font-size:1.2rem;
+      color:#d9fce6;
+      margin-bottom:35px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 35px;
+      border-radius:50px;
+      background:linear-gradient(90deg,#00c853,#00e5ff);
+      color:#04150d;
+      font-weight:700;
+      text-decoration:none;
+      transition:0.3s;
+      box-shadow:0 0 25px rgba(0,255,170,0.4);
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow:0 0 35px rgba(0,255,170,0.8);
+    }
+
+    section{
+      padding:90px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:2.5rem;
+      color:#89ffb3;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#c8f7d7;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      padding:30px;
+      border-radius:20px;
+      transition:0.4s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+      background:rgba(0,255,170,0.12);
+      border-radius:50%;
+      top:-30px;
+      right:-30px;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#62ffb2;
+      box-shadow:0 0 25px rgba(0,255,170,0.2);
+    }
+
+    .icon{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#9effc1;
+    }
+
+    .card p{
+      color:#d7f5e1;
+      line-height:1.7;
+    }
+
+    .stats{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:30px;
+      margin-top:60px;
+    }
+
+    .stat{
+      text-align:center;
+      background:rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:20px;
+      min-width:200px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat h3{
+      font-size:3rem;
+      color:#70ffb5;
+    }
+
+    .stat p{
+      color:#dbffe8;
+    }
+
+    footer{
+      padding:50px 20px;
+      text-align:center;
+      background:#041009;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    footer h3{
+      color:#8effbb;
+      margin-bottom:15px;
+    }
+
+    footer p{
+      color:#cdeed7;
+    }
+
+    @media(max-width:768px){
+      .hero h1{
+        font-size:2.6rem;
+      }
+
+      .hero p{
+        font-size:1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="particles" id="particles"></div>
+
+  <header>
+    <div class="hero">
+      <h1>AGRO FORTE<br>FUTURO SUSTENTÁVEL</h1>
+
+      <p>
+        Tecnologia, inovação e consciência ambiental unindo produção agrícola,
+        preservação da natureza e desenvolvimento sustentável para o futuro.
+      </p>
+
+      <a href="#tecnologia" class="btn">Explorar o Futuro</a>
+    </div>
+  </header>
+
+  <section id="tecnologia">
+    <div class="section-title">
+      <h2>Tecnologia no Campo</h2>
+      <p>
+        O agro moderno utiliza inteligência, dados e energia limpa para produzir mais preservando recursos naturais.
+      </p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="icon">🌱</div>
+        <h3>Agricultura Sustentável</h3>
+        <p>
+          Técnicas modernas reduzem impactos ambientais e aumentam a eficiência da produção agrícola.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🚜</div>
+        <h3>Máquinas Inteligentes</h3>
+        <p>
+          Tratores autônomos, sensores e drones ajudam no monitoramento e uso consciente dos recursos.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌎</div>
+        <h3>Preservação Ambiental</h3>
+        <p>
+          O equilíbrio entre produção e conservação garante um futuro saudável para o planeta.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Energia Renovável</h3>
+        <p>
+          Fazendas inteligentes utilizam energia solar e soluções limpas para reduzir emissões.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <h3>85%</h3>
+        <p>Eficiência hídrica</p>
+      </div>
+
+      <div class="stat">
+        <h3>100%</h3>
+        <p>Compromisso sustentável</p>
+      </div>
+
+      <div class="stat">
+        <h3>+50%</h3>
+        <p>Inovação tecnológica</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Agro Forte 2030</h3>
+    <p>
+      Produzir, inovar e preservar: o futuro sustentável começa agora.
+    </p>
+  </footer>
+
+  <script>
+    // partículas animadas
+    const particles = document.getElementById("particles");
+
+    for(let i = 0; i < 80; i++){
+      const p = document.createElement("div");
+      p.classList.add("particle");
+
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.animationDuration = (6 + Math.random() * 10) + "s";
+      p.style.animationDelay = Math.random() * 5 + "s";
+
+      particles.appendChild(p);
+    }
+
+    // animação suave ao scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function(e){
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute("href"))
+          .scrollIntoView({
+            behavior:"smooth"
+          });
+      });
+    });
+  </script>
+
+</body>
+</html>
